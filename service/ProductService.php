@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $product = new Product();
 
     if (isset($_GET['productId'])) {
-        $productId = $_GET['productId'];
+        $productId = intval($_GET['productId']); 
         $existingProduct = $productDAO->read($productId)->fetch(PDO::FETCH_ASSOC);
 
         if (!$existingProduct) {
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $product->setName(isset($data->name) ? $data->name : $existingProduct['name']);
         $product->setDescription(isset($data->description) ? $data->description : $existingProduct['description']);
         $product->setPrice(isset($data->price) ? $data->price : $existingProduct['price']);
-        $product->setStock(isset($data->stock) ? $data->stock : $existingProduct['stock']);
+        $product->setImageUrl(isset($data->imageUrl) ? $data->imageUrl : $existingProduct['imageUrl']);
 
         if ($productDAO->update($product)) {
             echo json_encode(["message" => "Produto atualizado com sucesso!"]);
@@ -40,18 +40,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo json_encode(["message" => "Erro ao atualizar o produto."]);
         }
     } else {
-        $product->setName($data->name);
-        $product->setDescription($data->description);
-        $product->setPrice($data->price);
-        $product->setStock($data->stock);
+        if (isset($data->name, $data->description, $data->price, $data->imageUrl)) {
+            $product->setName($data->name);
+            $product->setDescription($data->description);
+            $product->setPrice($data->price);
+            $product->setImageUrl($data->imageUrl);
 
-        if ($productDAO->create($product)) {
-            echo json_encode(["message" => "Produto criado com sucesso!"]);
+            if ($productDAO->create($product)) {
+                echo json_encode(["message" => "Produto criado com sucesso!"]);
+            } else {
+                echo json_encode(["message" => "Erro ao criar produto."]);
+            }
         } else {
-            echo json_encode(["message" => "Erro ao criar produto."]);
+            echo json_encode(["message" => "Dados incompletos para criar um produto."]);
         }
     }
 }
+
 
 elseif ($_SERVER['REQUEST_METHOD'] == 'GET') {
     if (isset($_GET['productId'])) {

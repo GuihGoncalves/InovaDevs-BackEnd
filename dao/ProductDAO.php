@@ -13,13 +13,13 @@
         }
 
         public function create(Product $product) {
-            $query = "INSERT INTO " . $this->table_name . " (name, description, price, stock) VALUES (:name, :description, :price, :stock)";
+            $query = "INSERT INTO " . $this->table_name . " (name, description, price, image_url) VALUES (:name, :description, :price, :imageUrl)";
             $stmt = $this->conn->prepare($query);
 
             $stmt->bindParam(":name", $product->getName());
             $stmt->bindParam(":description", $product->getDescription());
             $stmt->bindParam(":price", $product->getPrice());
-            $stmt->bindParam(":stock", $product->getStock());
+            $stmt->bindParam(":imageUrl", $product->getImageUrl());
 
             return $stmt->execute();
         }
@@ -47,7 +47,7 @@
             $stmt->bindParam(":name", $product->getName());
             $stmt->bindParam(":description", $product->getDescription());
             $stmt->bindParam(":price", $product->getPrice());
-            $stmt->bindParam(":stock", $product->getStock());
+            $stmt->bindParam(":imageUrl", $product->getImageUrl());
             $stmt->bindParam(":productId", $product->getProductId(), PDO::PARAM_INT);
 
             return $stmt->execute();
