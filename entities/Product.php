@@ -2,17 +2,17 @@
     namespace Entities;
 
     class Product {
-        private $productId;
+        private $product_id;
         private $name;
         private $description;
         private $price;
-        private $imageUrl;
+        private $image;
 
-        public function getProductId() {
+        public function getProduct_id() {
             return $this->productId;
         }
 
-        public function setProductId($productId) {
+        public function setProduct_d($productId) {
             $this->productId = $productId;
         }
 
@@ -40,12 +40,12 @@
             $this->price = $price;
         }
 
-        public function getImageUrl() {
-            return $this->imageUrl;
+        public function getImage() {
+            return $this->image;
         }
 
-        public function setImageUrl($imageUrl) {
-            $this->imageUrl = $imageUrl;
+        public function setImage($image) {
+            $this->image = $image;
         }
     }
 ?>

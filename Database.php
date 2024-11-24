@@ -13,7 +13,9 @@
                 $this->conn = new PDO("pgsql:host={$this->host};dbname={$this->dbname}", $this->user, $this->password);
                 $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch(PDOException $exception) {
-                echo "Erro na conexão: " . $exception->getMessage();
+                echo "--------------------------------------------------------------------------------
+-------------------------------- ERRO NA CONEXÃO -------------------------------
+--------------------------------------------------------------------------------\n\n". $exception->getMessage();
             }
 
             return $this->conn;
