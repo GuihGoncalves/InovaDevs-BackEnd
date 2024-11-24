@@ -13,13 +13,13 @@
         }
 
         public function create(Product $product) {
-            $query = "INSERT INTO " . $this->table_name . " (name, description, price, image_url) VALUES (:name, :description, :price, :imageUrl)";
+            $query = "INSERT INTO " . $this->table_name . " (name, description, price, image) VALUES (:name, :description, :price, :image)";
             $stmt = $this->conn->prepare($query);
 
             $stmt->bindParam(":name", $product->getName());
             $stmt->bindParam(":description", $product->getDescription());
             $stmt->bindParam(":price", $product->getPrice());
-            $stmt->bindParam(":imageUrl", $product->getImageUrl());
+            $stmt->bindParam(":image", $product->getImage());
 
             return $stmt->execute();
         }
@@ -41,14 +41,14 @@
         }
 
         public function update(Product $product) {
-            $query = "UPDATE " . $this->table_name . " SET name = :name, description = :description, price = :price, stock = :stock WHERE product_id = :productId";
+            $query = "UPDATE " . $this->table_name . " SET name = :name, description = :description, price = :price, image = :image WHERE product_id = :productId";
             $stmt = $this->conn->prepare($query);
 
             $stmt->bindParam(":name", $product->getName());
             $stmt->bindParam(":description", $product->getDescription());
             $stmt->bindParam(":price", $product->getPrice());
-            $stmt->bindParam(":imageUrl", $product->getImageUrl());
-            $stmt->bindParam(":productId", $product->getProductId(), PDO::PARAM_INT);
+            $stmt->bindParam(":image", $product->getImage());
+            $stmt->bindParam(":productId", $product->getProduct_id(), PDO::PARAM_INT);
 
             return $stmt->execute();
         }
