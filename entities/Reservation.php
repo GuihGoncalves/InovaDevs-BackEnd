@@ -2,26 +2,26 @@
     namespace Entities;
 
     class Reservation {
-        private $reservationId;
-        private $userId;
+        private $reservation_id;
+        private $user_id;
         private $product_id;
-        private $reservationDate;
+        private $reservation_date;
         private $status;
 
-        public function getReservationId() {
-            return $this->reservationId;
+        public function getReservation_id() {
+            return $this->reservation_id;
         }
 
-        public function setReservationId($reservationId) {
-            $this->reservationId = $reservationId;
+        public function setReservation_id($reservation_id) {
+            $this->reservation_id = $reservation_id;
         }
 
-        public function getUserId() {
-            return $this->userId;
+        public function getUser_id() {
+            return $this->user_id;
         }
 
-        public function setUserId($userId) {
-            $this->userId = $userId;
+        public function setUser_id($user_id) {
+            $this->user_id = $user_id;
         }
 
         public function getProduct_id() {
@@ -32,12 +32,12 @@
             $this->product_id = $product_id;
         }
 
-        public function getReservationDate() {
-            return $this->reservationDate;
+        public function getReservation_date() {
+            return $this->reservation_date;
         }
 
-        public function setReservationDate($reservationDate) {
-            $this->reservationDate = $reservationDate;
+        public function setReservation_date($reservation_date) {
+            $this->reservation_date = $reservation_date;
         }
 
         public function getStatus() {

@@ -22,7 +22,7 @@
             $phone = $user->getPhone();
             $email = $user->getEmail();
             $password = $user->getPassword();
-            $userType = $user->getUserType();
+            $userType = $user->getUser_type();
         
             $stmt->bindParam(":name", $name);
             $stmt->bindParam(":cpf", $cpf, PDO::PARAM_STR);
@@ -57,13 +57,13 @@
             
             $stmt = $this->conn->prepare($query);
 
-            $userId = $user->getUserId();        
+            $userId = $user->getUser_id();        
             $name = $user->getName();
             $cpf = $user->getCpf();
             $phone = $user->getPhone();
             $email = $user->getEmail();
             $password = $user->getPassword();
-            $userType = $user->getUserType();
+            $userType = $user->getUser_type();
         
             $stmt->bindParam(":userId", $userId);
             $stmt->bindParam(":name", $name);

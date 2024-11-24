@@ -44,11 +44,19 @@
             $query = "UPDATE " . $this->table_name . " SET name = :name, description = :description, price = :price, image = :image WHERE product_id = :productId";
             $stmt = $this->conn->prepare($query);
 
-            $stmt->bindParam(":name", $product->getName());
-            $stmt->bindParam(":description", $product->getDescription());
-            $stmt->bindParam(":price", $product->getPrice());
-            $stmt->bindParam(":image", $product->getImage());
-            $stmt->bindParam(":productId", $product->getProduct_id(), PDO::PARAM_INT);
+            // Armazene os valores em variáveis
+            $name = $product->getName();
+            $description = $product->getDescription();
+            $price = $product->getPrice();
+            $image = $product->getImage();
+            $productId = $product->getProduct_id();
+
+            // Use as variáveis no bindParam
+            $stmt->bindParam(":name", $name);
+            $stmt->bindParam(":description", $description);
+            $stmt->bindParam(":price", $price);
+            $stmt->bindParam(":image", $image);
+            $stmt->bindParam(":productId", $productId, PDO::PARAM_INT);
 
             return $stmt->execute();
         }
@@ -57,9 +65,9 @@
             $query = "DELETE FROM " . $this->table_name . " WHERE product_id = :productId";
             $stmt = $this->conn->prepare($query);
 
-                $stmt->bindParam(":productId", $productId, PDO::PARAM_INT);
+            $stmt->bindParam(":productId", $productId, PDO::PARAM_INT);
 
-                return $stmt->execute();
+            return $stmt->execute();
         }
     }
 ?>
