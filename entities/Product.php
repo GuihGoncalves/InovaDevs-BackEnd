@@ -9,11 +9,11 @@
         private $image;
 
         public function getProduct_id() {
-            return $this->productId;
+            return $this->product_id;
         }
 
-        public function setProduct_d($productId) {
-            $this->productId = $productId;
+        public function setProduct_id($product_id) {
+            $this->product_id = $product_id;
         }
 
         public function getName() {

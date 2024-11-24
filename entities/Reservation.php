@@ -4,7 +4,7 @@
     class Reservation {
         private $reservationId;
         private $userId;
-        private $productId;
+        private $product_id;
         private $reservationDate;
         private $status;
 
@@ -24,12 +24,12 @@
             $this->userId = $userId;
         }
 
-        public function getProductId() {
-            return $this->productId;
+        public function getProduct_id() {
+            return $this->product_id;
         }
 
-        public function setProductId($productId) {
-            $this->productId = $productId;
+        public function setProduct_id($product_id) {
+            $this->product_id = $product_id;
         }
 
         public function getReservationDate() {

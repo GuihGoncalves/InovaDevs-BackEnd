@@ -57,9 +57,9 @@
             $query = "DELETE FROM " . $this->table_name . " WHERE product_id = :productId";
             $stmt = $this->conn->prepare($query);
 
-            $stmt->bindParam(":productId", $productId, PDO::PARAM_INT);
+                $stmt->bindParam(":productId", $productId, PDO::PARAM_INT);
 
-            return $stmt->execute();
+                return $stmt->execute();
         }
     }
 ?>

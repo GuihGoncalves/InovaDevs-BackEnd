@@ -22,9 +22,9 @@ try {
             exit;
         }
 
-        $productId = intval($_GET['productId']);
+        $product_id = intval($_GET['productId']);
         $data = json_decode(file_get_contents("php://input"));
-        $existingProduct = $productDAO->read($productId)->fetch(PDO::FETCH_ASSOC);
+        $existingProduct = $productDAO->read($product_id)->fetch(PDO::FETCH_ASSOC);
 
         if (!$existingProduct) {
             echo json_encode(["message" => "Produto não encontrado."]);
@@ -32,7 +32,7 @@ try {
         }
 
         $product = new Product();
-        $product->setProduct_id($productId);
+        $product->setProduct_id($product_id);
         $product->setName($data->name ?? $existingProduct['name']);
         $product->setDescription($data->description ?? $existingProduct['description']);
         $product->setPrice($data->price ?? $existingProduct['price']);
