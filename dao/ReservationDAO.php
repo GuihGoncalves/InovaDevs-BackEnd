@@ -16,24 +16,24 @@ class ReservationDAO {
         $query = "INSERT INTO " . $this->table_name . " (user_id, product_id, reservation_date, status) VALUES (:userId, :productId, :reservationDate, :status)";
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(":userId", $reservation->getUserId());
-        $stmt->bindParam(":productId", $reservation->getProductId());
-        $stmt->bindParam(":reservationDate", $reservation->getReservationDate());
+        $stmt->bindParam(":userId", $reservation->getUser_id());
+        $stmt->bindParam(":productId", $reservation->getProduct_id());
+        $stmt->bindParam(":reservationDate", $reservation->getReservation_date());
         $stmt->bindParam(":status", $reservation->getStatus());
 
         return $stmt->execute();
     }
 
-    public function read($reservationId = null) {
-        $query = "SELECT * FROM " . $this->table_name;
-        if ($reservationId) {
-            $query .= " WHERE reservation_id = :reservationId";
+    public function read($cpf = null) {
+        $query = "SELECT r.* FROM " . $this->table_name . " r";
+        if ($cpf) {
+            $query .= ", users u where r.user_id = u.user_id and u.cpf = :cpf";
         }
 
         $stmt = $this->conn->prepare($query);
 
-        if ($reservationId) {
-            $stmt->bindParam(":reservationId", $reservationId, PDO::PARAM_INT);
+        if ($cpf) {
+            $stmt->bindParam(":cpf", $cpf, PDO::PARAM_INT);
         }
 
         $stmt->execute();
@@ -44,11 +44,11 @@ class ReservationDAO {
         $query = "UPDATE " . $this->table_name . " SET user_id = :userId, product_id = :productId, reservation_date = :reservationDate, status = :status WHERE reservation_id = :reservationId";
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(":userId", $reservation->getUserId());
-        $stmt->bindParam(":productId", $reservation->getProductId());
-        $stmt->bindParam(":reservationDate", $reservation->getReservationDate());
+        $stmt->bindParam(":userId", $reservation->getUser_id());
+        $stmt->bindParam(":productId", $reservation->getProduct_id());
+        $stmt->bindParam(":reservationDate", $reservation->getReservation_date());
         $stmt->bindParam(":status", $reservation->getStatus());
-        $stmt->bindParam(":reservationId", $reservation->getReservationId(), PDO::PARAM_INT);
+        $stmt->bindParam(":reservationId", $reservation->getReservation_id(), PDO::PARAM_INT);
 
         return $stmt->execute();
     }
