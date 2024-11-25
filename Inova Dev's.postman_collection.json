@@ -1,0 +1,412 @@
+/* Teste no Postman, links para as API hospedadas online e com alguns JSON de dados à inserir*/
+
+{
+	"info": {
+		"_postman_id": "7f9f0ca3-4566-40fe-840d-e64b4db7fe37",
+		"name": "Inova Dev's",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21284859"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Read Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://inovadevsapi.onrender.com/service/userService/readUser.php"
+					},
+					"response": []
+				},
+				{
+					"name": "Read User By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inovadevsapi.onrender.com/service/userService/readUser.php?userId=14",
+							"protocol": "https",
+							"host": [
+								"inovadevsapi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"service",
+								"userService",
+								"readUser.php"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Guilherme Gonçalves\",\r\n    \"cpf\": \"11199922219\",\r\n    \"phone\": \"55011999958888\",\r\n    \"email\": \"guilherme.g15@gmail.com\",\r\n    \"password\": \"g#goncalves10\",\r\n    \"userType\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inovadevsapi.onrender.com/service/userService/updateUser.php?userId=14",
+							"protocol": "https",
+							"host": [
+								"inovadevsapi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"service",
+								"userService",
+								"updateUser.php"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Guilherme Gonçalves\",\r\n    \"cpf\": \"11199922218\",\r\n    \"phone\": \"55011999958888\",\r\n    \"email\": \"guilherme.g17@gmail.com\",\r\n    \"password\": \"g#gonfffcalves10\",\r\n    \"user_type\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://inovadevsapi.onrender.com/service/userService/createUser.php"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://inovadevsapi.onrender.com/service/userService/deleteUser.php?userId=14",
+							"protocol": "https",
+							"host": [
+								"inovadevsapi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"service",
+								"userService",
+								"deleteUser.php"
+							],
+							"query": [
+								{
+									"key": "userId",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Read Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://inovadevsapi.onrender.com/service/productService/readProduct.php"
+					},
+					"response": []
+				},
+				{
+					"name": "Read Product By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://inovadevsapi.onrender.com/service/productService/readProduct.php?productId=12",
+							"protocol": "https",
+							"host": [
+								"inovadevsapi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"service",
+								"productService",
+								"readProduct.php"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Teste Render\",\r\n    \"description\": \"Delicioso bolo de Cenoura com cobertura de Chocolate\",\r\n    \"price\": \"50\",\r\n    \"image\": \"\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://inovadevsapi.onrender.com/service/productService/createProduct.php"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Bolo de Cenoura\",\r\n    \"description\": \"Delicioso bolo de Cenoura com cobertura de Chocolate\",\r\n    \"price\": \"60.00\",\r\n    \"image\": \"bDc\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inovadevsapi.onrender.com/service/productService/updateProduct.php?productId=12",
+							"protocol": "https",
+							"host": [
+								"inovadevsapi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"service",
+								"productService",
+								"updateProduct.php"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://inovadevsapi.onrender.com/service/productService/deleteProduct.php?productId=8",
+							"protocol": "https",
+							"host": [
+								"inovadevsapi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"service",
+								"productService",
+								"deleteProduct.php"
+							],
+							"query": [
+								{
+									"key": "productId",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reservation",
+			"item": [
+				{
+					"name": "Read Reservations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://inovadevsapi.onrender.com/service/reservationService/readReservation.php"
+					},
+					"response": []
+				},
+				{
+					"name": "Read Reservation By cpf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inovadevsapi.onrender.com/service/reservationService/readReservation.php?cpf=11199922218",
+							"protocol": "https",
+							"host": [
+								"inovadevsapi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"service",
+								"reservationService",
+								"readReservation.php"
+							],
+							"query": [
+								{
+									"key": "cpf",
+									"value": "11199922218"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Copy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"1\",\r\n    \"productId\": null,\r\n    \"reservationDate\": \"2024-11-24 19:54:46.931646\",\r\n    \"status\": \"new\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://inovadevsapi.onrender.com/service/reservationService/updateReservation.php?reservationId=4",
+							"protocol": "https",
+							"host": [
+								"inovadevsapi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"service",
+								"reservationService",
+								"updateReservation.php"
+							],
+							"query": [
+								{
+									"key": "reservationId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userId\": \"1\",\r\n    \"productId\": \"3\",\r\n    \"reservationDate\": \"2024-11-24 21:17:46.931646\",\r\n    \"status\": \"new\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://inovadevsapi.onrender.com/service/reservationService/createReservation.php"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://inovadevsapi.onrender.com/service//reservationService/deleteReservation.php?reservationId=5",
+							"protocol": "https",
+							"host": [
+								"inovadevsapi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"service",
+								"",
+								"reservationService",
+								"deleteReservation.php"
+							],
+							"query": [
+								{
+									"key": "reservationId",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
