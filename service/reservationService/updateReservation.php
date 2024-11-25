@@ -33,10 +33,14 @@ try {
 
         $reservation = new Reservation();
         $reservation->setReservation_id($reservation_id);
+        $reservation->setName($data->name ?? $existingReservation['name']);
         $reservation->setUser_id($data->userId ?? $existingReservation['userId']);
         $reservation->setProduct_id($data->productId ?? $existingReservation['productId']);
+        $reservation->setPeople_qtt($data->peopleQtt ?? $existingReservation['peopleQtt']);
         $reservation->setReservation_date($data->reservationDate ?? $existingReservation['reservationDate']);
+        $reservation->setReservation_time($data->reservationTime ?? $existingReservation['reservationDate']);
         $reservation->setStatus($data->status ?? $existingReservation['status']);
+        $reservation->setArea($data->area ?? $existingReservation['area']);
 
 
         if ($reservationDAO->update($reservation)) {

@@ -21,11 +21,22 @@ try {
         $reservation = new Reservation();
 
 
-        if (isset($data->userId, $data->productId, $data->reservationDate, $data->status)) {
+        if (isset($data->name, 
+                  $data->userId,
+                  $data->productId, 
+                  $data->peopleQtt, 
+                  $data->reservationDate, 
+                  $data->reservationTime, 
+                  $data->status, 
+                  $data->area)) {
+            $reservation->setName($data->name);
             $reservation->setUser_id($data->userId);
             $reservation->setProduct_id($data->productId);
+            $reservation->setpeople_qtt($data->peopleQtt);
             $reservation->setReservation_date($data->reservationDate);
+            $reservation->setReservation_time($data->reservationTime);
             $reservation->setStatus($data->status);
+            $reservation->setArea($data->area);
 
             if ($reservationDAO->create($reservation)) {
                 echo json_encode(["message" => "Reserva criada com sucesso!"]);
