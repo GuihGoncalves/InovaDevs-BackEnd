@@ -40,6 +40,22 @@ class ReservationDAO {
         return $stmt;
     }
 
+    public function readById($reservationId = null) {
+        $query = "SELECT * FROM " . $this->table_name;
+        if ($reservationId) {
+            $query .= " where reservation_id = :reservationId";
+        }
+
+        $stmt = $this->conn->prepare($query);
+
+        if ($reservationId) {
+            $stmt->bindParam(":reservationId", $reservationId, PDO::PARAM_INT);
+        }
+
+        $stmt->execute();
+        return $stmt;
+    }
+
     public function update(Reservation $reservation) {
         $query = "UPDATE " . $this->table_name . " SET user_id = :userId, product_id = :productId, reservation_date = :reservationDate, status = :status WHERE reservation_id = :reservationId";
         $stmt = $this->conn->prepare($query);
