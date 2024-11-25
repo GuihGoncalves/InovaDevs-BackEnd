@@ -20,7 +20,7 @@ try {
         if (isset($_GET['cpf'])) {
             $cpf = intval($_GET['cpf']);
             $stmt = $reservationDAO->read($cpf);
-            $reservation = $stmt->fetch(PDO::FETCH_ASSOC);
+            $reservation = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             echo json_encode($reservation ? $reservation : ["message" => "Reserva não encontrado."]);
         } else {
