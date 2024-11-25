@@ -2,14 +2,23 @@
 
 ## 💻 Site
 
-<https://guihgoncalves.github.io/InovaDevs/>
+Site disponível em: <https://guihgoncalves.github.io/InovaDevs/>
 
-Backend em: <https://inovadevsapi.onrender.com/service/>
-Exemplo: Para buscar os produtos, adicionar /productService/readProduct.php ou o nome dos arquivos no ./Service.
+API's disponíveis em: <https://inovadevsapi.onrender.com>
+
 
 ## 🛠️ Construído com
 
-(No final, adicionaremos todas as ferramentas que utilizamos para o desenvolvimento.)
+PHP - Para a construção dos Endpoints.
+
+XAMPP - Para a host de forma local dos Endpoints
+
+Postgresql - Para armazenamento de dados e o PGAdmin, para adiministrar tanto o banco local, quanto o banco hospedado de forma online.
+
+Render - Para a hospedagem do banco postgres e todos os endpoints de forma online.
+
+Postman - Para a realização de testes (Local e Online)
+
 
 ## ✒️ Autores
 
