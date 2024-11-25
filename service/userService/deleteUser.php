@@ -27,6 +27,8 @@ try {
         } else {
             echo json_encode(["message" => "ID do Usuário não fornecido."]);
         }
+    }else {
+        echo json_encode(["message" => "Método não permitido. Use DELETE para excluir o Usuário."]);
     }
 } catch (PDOException $exception) {
     echo "Erro: " . $exception->getMessage();

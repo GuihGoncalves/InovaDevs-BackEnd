@@ -28,6 +28,8 @@ try {
         } else {
             echo json_encode(["message" => "ID da reserva não fornecido."]);
         }
+    }else {
+        echo json_encode(["message" => "Método não permitido. Use DELETE para excluir a reserva."]);
     }
 } catch (PDOException $exception) {
     echo "Erro: " . $exception->getMessage();
