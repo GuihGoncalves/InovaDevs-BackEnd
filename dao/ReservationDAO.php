@@ -16,15 +16,25 @@ class ReservationDAO {
         $query = "INSERT INTO " . $this->table_name . " (name, user_id, product_id, people_qtt, reservation_date, reservation_time, status, area) VALUES (:name, :userId, :productId, :peopleQtt, :reservationDate, :reservationTime, :status, :area)";
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(":name", $reservation->getName());
-        $stmt->bindParam(":userId", $reservation->getUser_id());
-        $stmt->bindParam(":productId", $reservation->getProduct_id());
-        $stmt->bindParam(":peopleQtt", $reservation->getPeople_qtt());
-        $stmt->bindParam(":reservationDate", $reservation->getReservation_date());
-        $stmt->bindParam(":reservationTime", $reservation->getReservation_time());
-        $stmt->bindParam(":status", $reservation->getStatus());
-        $stmt->bindParam(":area", $reservation->getArea());
+        $name = $reservation->getName();
+        $userId = $reservation->getUser_id();
+        $productId = $reservation->getProduct_id();
+        $peopleQtt = $reservation->getPeople_qtt();
+        $reservationDate = $reservation->getReservation_date();
+        $reservationTime = $reservation->getReservation_time();
+        $status = $reservation->getStatus();
+        $area = $reservation->getArea();
 
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":userId", $userId);
+        $stmt->bindParam(":productId", $productId);
+        $stmt->bindParam(":peopleQtt", $peopleQtt);
+        $stmt->bindParam(":reservationDate", $reservationDate);
+        $stmt->bindParam(":reservationTime", $reservationTime);
+        $stmt->bindParam(":status", $status);
+        $stmt->bindParam(":area", $area);
+
+        
         return $stmt->execute();
     }
 
@@ -64,15 +74,27 @@ class ReservationDAO {
         $query = "UPDATE " . $this->table_name . " SET name = :name, user_id = :userId, product_id = :productId, people_qtt = :peopleQtt, reservation_date = :reservationDate, reservation_time = :reservationTime, status = :status, area = :area WHERE reservation_id = :reservationId";
         $stmt = $this->conn->prepare($query);
 
-        $stmt->bindParam(":name", $reservation->getName());
-        $stmt->bindParam(":userId", $reservation->getUser_id());
-        $stmt->bindParam(":productId", $reservation->getProduct_id());
-        $stmt->bindParam(":peopleQtt", $reservation->getPeople_qtt());
-        $stmt->bindParam(":reservationDate", $reservation->getReservation_date());
-        $stmt->bindParam(":reservationTime", $reservation->getReservation_time());
-        $stmt->bindParam(":status", $reservation->getStatus());
-        $stmt->bindParam(":area", $reservation->getArea());
-        $stmt->bindParam(":reservationId", $reservation->getReservation_id(), PDO::PARAM_INT);
+        // Armazenar as variáveis em vez de passar diretamente para o bindParam
+        $name = $reservation->getName();
+        $userId = $reservation->getUser_id();
+        $productId = $reservation->getProduct_id();
+        $peopleQtt = $reservation->getPeople_qtt();
+        $reservationDate = $reservation->getReservation_date();
+        $reservationTime = $reservation->getReservation_time();
+        $status = $reservation->getStatus();
+        $area = $reservation->getArea();
+        $reservationId = $reservation->getReservation_id();
+
+        // Passar as variáveis para bindParam
+        $stmt->bindParam(":name", $name);
+        $stmt->bindParam(":userId", $userId);
+        $stmt->bindParam(":productId", $productId);
+        $stmt->bindParam(":peopleQtt", $peopleQtt);
+        $stmt->bindParam(":reservationDate", $reservationDate);
+        $stmt->bindParam(":reservationTime", $reservationTime);
+        $stmt->bindParam(":status", $status);
+        $stmt->bindParam(":area", $area);
+        $stmt->bindParam(":reservationId", $reservationId, PDO::PARAM_INT);
 
         return $stmt->execute();
     }
