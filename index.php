@@ -161,5 +161,34 @@
             </tr>
         </tbody>
     </table>
+
+    <!-- Purchase Section -->
+    <h2>Purchase</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Endpoint</th>
+                <th>Descrição</th>
+                <th>Método</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><a href="https://inovadevsapi.onrender.com/service/purchaseService/readPurchase.php" target="_blank">Read Purchase</a></td>
+                <td>Listar ordens de compra</td>
+                <td>GET</td>
+            </tr>
+            <tr>
+                <td><a href="https://inovadevsapi.onrender.com/service/purchaseService/createPurchase.php" target="_blank">Create Purchase</a></td>
+                <td>Criar uma nova ordem de compra</td>
+                <td>POST</td>
+            </tr>
+            <tr>
+                <td><a href="https://inovadevsapi.onrender.com/service/purchaseService/deletePurchase.php?purchaseId=8" target="_blank">Delete Purchase</a></td>
+                <td>Excluir ordem de compra</td>
+                <td>DELETE</td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
